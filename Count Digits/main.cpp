@@ -2,27 +2,27 @@
 
 using namespace std;
 
-int evenlyDivides(int N);
+int reverse(int x);
 
 int main()
 {
     int N;
     cin >> N;
-    cout << evenlyDivides(N) << endl; 
+    cout << reverse(N) << endl; 
 }
 
-int evenlyDivides(int N){
-        int n = N;
-        int i = 0;
-        int k;
-        while (n != 0)
+    int reverse(int x) {
+        int lastDigit;
+        long long revNum = 0;
+        while (x != 0)
         {
-            k = n % 10;
-            if (n % 10 != 0 && N % (n % 10) == 0)
+            lastDigit = x % 10;
+            x = x / 10;
+            revNum = revNum * 10 + lastDigit;
+            if (revNum > INT32_MAX || revNum < INT32_MIN)
             {
-                i++;
+                return 0;
             }
-            n = n / 10;
         }
-        return i;
+        return revNum;
     }
