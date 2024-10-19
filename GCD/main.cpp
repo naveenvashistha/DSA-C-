@@ -15,6 +15,8 @@ int main()
     cout << "LCM & HCF by method 2 is: " << v2[0] << " " << v2[1] << endl;
 }
 
+//time - O(logn)
+//space - O(1)
 vector<int> lcmAndGCD1(int A, int B){
     // code here
     int temp;
@@ -28,6 +30,8 @@ vector<int> lcmAndGCD1(int A, int B){
     return {product / A, A};
 }
 
+//time - O(log min(a,b))
+//space - O(1)
 vector<int> lcmAndGCD2(int A, int B){
     // code here
     int product = A*B;

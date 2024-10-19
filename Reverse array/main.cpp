@@ -23,6 +23,8 @@ int main()
 	//reverse4(N, ar);
 }
 
+//time - O(n)
+//space - O(n)
 void reverse1(int N, int ar1[], int ar2[])
 {
 	//Your code here
@@ -33,6 +35,8 @@ void reverse1(int N, int ar1[], int ar2[])
 	printArray(N, ar2);
 }
 
+//time - O(n)
+//space - O(1)
 void reverse2(int N, int ar[])
 {
 	int temp;
@@ -45,6 +49,8 @@ void reverse2(int N, int ar[])
 	printArray(N, ar);
 }
 
+//time - O(n)
+//space - O(n)
 void reverse3(int i, int j, int ar[])
 {
 	if (i >= j)
@@ -57,6 +63,8 @@ void reverse3(int i, int j, int ar[])
 	reverse3(i + 1, j - 1, ar);
 }
 
+//time - O(n)
+//space - O(1)
 void reverse4(int N, int ar[])
 {
 	reverse(ar, ar + N);

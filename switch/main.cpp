@@ -30,6 +30,8 @@ int main()
     cout << "Area: " << switchCase(choice, num);
 }
 
+//time - O(1)
+//space - O(1)
 double switchCase(int choice, vector<double> &arr) {
         // code here
         double area;

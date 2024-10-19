@@ -5,6 +5,7 @@ using namespace std;
 void printNos1(int n);
 void printNos2(int n);
 int  sumFirstN(int N);
+int factorial(int N);
 
 int main()
 {
@@ -14,8 +15,11 @@ int main()
 	cout << endl;
 	printNos2(N);
 	cout << endl << sumFirstN(N) << endl;
+	cout << factorial(N) << endl;
 }
 
+//time - O(n)
+//space - O(n)
 void printNos1(int N)
 {
 	//Your code here
@@ -24,6 +28,8 @@ void printNos1(int N)
 	cout << N << " ";
 }
 
+//time - O(n)
+//space - O(n)
 void printNos2(int N)
 {
 	//Your code here
@@ -32,6 +38,8 @@ void printNos2(int N)
 		printNos2(N - 1);
 }
 
+//time - O(n)
+//space - O(n)
 int  sumFirstN(int N)
 {
 	//Your code here
@@ -40,4 +48,13 @@ int  sumFirstN(int N)
 		return N + sumFirstN(N - 1);
 	}
 	return N;
+}
+
+//time - O(n)
+//space - O(n)
+int factorial(int N)
+{
+	if (N > 1)
+		return N * factorial(N - 1);
+	return 1;
 }

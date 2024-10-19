@@ -10,6 +10,8 @@ int main()
     cout << dataTypeSize(dataType);
 }
 
+//time - O(1)
+//space - O(1)
 int dataTypeSize(string str)
 {
         // your code here

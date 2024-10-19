@@ -16,6 +16,8 @@ int main()
     return 0;
 }
 
+//time - O(1)
+//space - O(1)
 vector<int> passedBy(int a, int &b)
 {
     return {a + 1, b + 2};

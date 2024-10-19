@@ -11,6 +11,8 @@ int main()
     cout << isPrime(N) << endl; 
 }
 
+//time - O(sqrt(n))
+//space - O(1)
 bool isPrime(int n)
 {
 	// Write your code here.

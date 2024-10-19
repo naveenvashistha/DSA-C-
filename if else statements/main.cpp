@@ -15,6 +15,9 @@ int main()
     return 0;
 }
 
+
+//time - O(1)
+//space - O(1)
 string compareNM(int n, int m){
         // code here
         if (n > m)

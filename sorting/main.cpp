@@ -191,6 +191,8 @@ void recursive_bubble_sort(int arr[], int end)
 		recursive_bubble_sort(arr, end - 1);
 }
 
+//time: best & avg case O(n) , worst case O(n^2)
+//space: O(n) auxillary stack space  
 void recursive_insertion_sort(int arr[], int end, int N)
 {
 	if (end > N - 1)

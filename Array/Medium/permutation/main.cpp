@@ -8,7 +8,7 @@ void permutation2(vector<int>& num);
 int main()
 {
     vector<int> num = {7,1,5,3,6,4};
-    // permutation1(num);
+    //permutation1(num);
     permutation2(num);
     for(auto i: num)
     {

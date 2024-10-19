@@ -33,6 +33,7 @@ int subarraySum1(vector<int>& nums, int k)
 }
 
 //orgasmic soln
+//counting how many times sum - k comes
 //time: O(n)
 //space: O(n)
 int subarraySum2(vector<int>& nums, int k)

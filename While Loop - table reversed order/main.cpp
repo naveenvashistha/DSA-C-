@@ -9,6 +9,8 @@ int main()
         cin >> n;
     } while(n < 1 || n > 10000);
 
+    //time - O(1)
+    //space - O(1)
     while(mutliplier > 0)
     {
         cout << n * mutliplier << " ";

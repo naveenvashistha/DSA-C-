@@ -11,6 +11,8 @@ int main()
     cout << palindrome(N) << endl; 
 }
 
+//time - O(logn)
+//space - O(1)
 bool palindrome(int N){
     if (N < 0) return false;
     if (N < 10) return true;
