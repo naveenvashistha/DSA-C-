@@ -2,9 +2,9 @@
 
 using namespace std;
 
-vector<vector<int>> threeSum1(vector<int>& nums);
-vector<vector<int>> threeSum2(vector<int>& nums);
-vector<vector<int>> threeSum3(vector<int>& nums);
+vector<vector<int>> fourSum1(vector<int>& nums);
+vector<vector<int>> fourSum2(vector<int>& nums);
+vector<vector<int>> fourSum3(vector<int>& nums);
 
 int main()
 {
@@ -23,7 +23,7 @@ int main()
 //brute force
 //time: O(N^3 * log(no. of unique triplets)), where N = size of the array.
 //space: O(N)
-vector<vector<int>> threeSum1(vector<int>& nums)
+vector<vector<int>> fourSum1(vector<int>& nums)
 {
     int n = nums.size();
     set<vector<int>> s;
@@ -73,8 +73,8 @@ vector<vector<int>> threeSum1(vector<int>& nums)
 }
 
 //orgasmic
-//time: O(N^2 * log(no. of unique triplets))
-//space: O(no. of the unique triplets) + O(N (for hashset))
+//time: O(NlogN)+O(N2)
+//space: O(1)
 vector<vector<int>> threeSum1(vector<int>& nums)
 {
     int n = nums.size();
