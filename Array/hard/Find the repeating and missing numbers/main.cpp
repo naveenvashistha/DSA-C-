@@ -74,6 +74,9 @@ vector<int> findMissingRepeatingNumbers3(vector<int> a)
     return {(int)repeat, (int)missing};
 }
 
+//orgasmic
+//time: O(n)
+//space: O(1)
 vector<int> findMissingRepeatingNumbers4(vector<int> a)
 {
     int n = a.size();
