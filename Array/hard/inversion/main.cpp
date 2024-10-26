@@ -44,7 +44,7 @@ int numberOfInversions2(vector<int>&a, int n)
 void divide(vector<int>&a, int low, int high, int &cnt)
 {
     int mid = (low + high) / 2;
-    while(low < high)
+    if(low < high)
     {
         divide(a, low, mid, cnt);
         divide(a, mid + 1, high, cnt);
@@ -68,7 +68,7 @@ void sort_arr(vector<int>& a, int low, int high, int &cnt)
         else
         {
             temp.push_back(a[j]);
-            cnt++;
+            cnt = cnt + (mid - i + 1);
             j++;
         }
     }
