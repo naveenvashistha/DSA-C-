@@ -39,7 +39,7 @@ int lower_bound1(vector<int>& nums, int n, int target) {
 int lower_bound2(vector<int>& nums, int n, int target) {
     int low = 0;
     int high = n - 1;
-    int mid, ans;
+    int mid, ans = n;
     while(low <= high)
     {
         mid = (low + high) / 2;
