@@ -49,5 +49,5 @@ int lower_bound2(vector<int>& nums, int n, int target) {
         }
         else low = mid + 1;
     }
-    return mid;
+    return ans;
 }
