@@ -38,6 +38,12 @@ int search1(vector<int>& nums, int target)
 	return -1;
 }
 
+//find the sorted half
+//then check if target is in sorted half
+//if not then eliminate that half
+//orgasmic
+//time: O(logn)
+//space: O(1)
 int search2(vector<int>& nums, int target)
 {
 	int n = nums.size();
