@@ -29,10 +29,10 @@ int minbananas1(vector<int>& piles, int h)
         int k = calculateTime(piles, i);
         if(k <= h)
         {
-            min_k = min(min_k, k);
+            return i;
         }
     }
-    return min_k;
+    return -1;
 }
 
 int calculateTime(vector<int>& piles, int i)
@@ -54,7 +54,7 @@ int calculateTime(vector<int>& piles, int i)
 int minbananas2(vector<int>& piles, int h)
 {
     int n = piles.size(), min_k = INT_MAX;
-    int maxx = piles[0];
+    int maxx = INT_MIN;
     for(int i = 0; i < n; i++)
     {
         maxx = max(maxx, piles[i]);
@@ -67,8 +67,9 @@ int minbananas2(vector<int>& piles, int h)
         if(t <= h)
         {
             min_k = min(min_k, mid);
+            high = mid - 1;
         }
-        else high = mid - 1;
+        else low = mid + 1;
     }
     return min_k;
 }
