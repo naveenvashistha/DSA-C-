@@ -91,6 +91,9 @@ double median2(vector<int>& nums1, vector<int>& nums2)
     return (double)second;
 }
 
+//orgasmic
+//time: O(logn)
+//space: O(1)
 double median3(vector<int>& nums1, vector<int>& nums2)
 {
     int n1 = nums1.size(), n2 = nums2.size();
