@@ -36,21 +36,17 @@ bool searchMatrix1(vector<vector<int>>& matrix, int target)
 }
 
 //orgasmic
-//time: O(logm*n)
+//time: O(rows + columns)
 //space: O(1)
 bool searchMatrix2(vector<vector<int>>& matrix, int target)
 {
     int rows = matrix.size(), cols = matrix[0].size();
-    int low = 0, high = rows * cols - 1, mid;
-    int r, c;
-    while(low <= high)
+    int r = 0, c = cols - 1;
+    while(r < rows && c >= 0)
     {
-        mid = (low + high) / 2;
-        r = mid / cols;
-        c = mid % cols;
         if(matrix[r][c] == target) return true;
-        else if(matrix[r][c] < target) low = mid + 1;
-        else high = mid - 1;
+        else if(matrix[r][c] < target) r++;
+        else c--;
     }
     return false;
 }
