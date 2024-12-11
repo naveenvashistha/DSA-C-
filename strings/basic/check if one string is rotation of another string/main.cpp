@@ -3,6 +3,7 @@
 using namespace std;
 
 bool rotateString1(string s, string goal);
+bool rotateString2(string s, string goal);
 
 
 int main()
