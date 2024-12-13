@@ -3,7 +3,7 @@
 using namespace std;
 
 int romanToInt1(string s);
-int romanToInt2(string s)  
+int romanToInt2(string s);  
 
 int main()
 {
