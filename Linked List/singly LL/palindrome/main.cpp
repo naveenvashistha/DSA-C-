@@ -23,16 +23,16 @@ public:
 };
 
 Node* constructLL(vector<int>& arr);
-Node* hasCycle(Node *head);
-int countNodesinLoop(Node *head);
-int countNodesinLoop1(Node *head);
+bool isPalindrome(Node* head);
+bool isPalindrome1(Node* head);
+Node* reversed(Node* head);
 void traverse(Node* head);
 
 int main()
 {
 	vector<int> arr = {1,2,3,4,5,6};
 	Node* head = constructLL(arr);
-	cout << countNodesinLoop(head) << endl;
+	cout << isPalindrome1(head) << endl;
 }
 
 //brute
@@ -61,7 +61,7 @@ bool isPalindrome(Node* head) {
 //if every value is equal then its palindrome otherwise not
 //time: O(2n)
 //space: O(1)
-bool isPalindrome(Node* head) {
+bool isPalindrome1(Node* head) {
 	Node* slow = head;
 	Node* fast = head;
 	if(head == NULL || head->next == NULL) return true;
