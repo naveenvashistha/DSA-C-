@@ -98,7 +98,7 @@ Node* mergeList(Node* lefthead, Node* righthead)
 
 //orgasmic
 //time: O(logn*(n+n/2))
-//space: O(1)
+//space: O(logn)
 Node* sortList1(Node* head) {
 	if(head == NULL || head->next == NULL) return head;
 	Node* middle = findMiddle(head);
