@@ -49,3 +49,32 @@ double myPow(double x, int n) {
     if(n < 0) return 1 / ans;
     return ans;
 }
+
+double powpow(double x, double ans, long nn)
+{
+    if(nn == 0) return ans;
+
+    if(nn % 2 == 0)
+    {
+        x = x * x;
+        nn = nn / 2;
+    }
+    else
+    {
+        ans = ans * x;
+        nn = nn - 1;
+    }
+    return powpow(x, ans, nn);
+}
+
+
+//orgasmic (recursion)
+//time: O(logn)
+//space: O(logn)
+double myPow(double x, int n) {
+    long nn = abs((long)n);
+    double ans = 1;
+    ans = powpow(x, ans, nn);
+    if(n < 0) return 1 / ans;
+    return ans;
+}
