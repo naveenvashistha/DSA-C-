@@ -19,6 +19,9 @@ int main()
     }
 }
 
+//orgasmic
+//time: O(n^2)
+//space: O(n)
 void sort(stack<int> &s)
 {
    //Your code here
