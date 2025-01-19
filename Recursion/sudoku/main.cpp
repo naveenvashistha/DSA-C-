@@ -19,7 +19,7 @@ int main()
         {'.', '9', '1', '.', '3', '6', '.', '7', '5'},
         {'7', '.', '6', '1', '8', '5', '4', '.', '9'}
     };
-    solveSudoku(board, 0, 0);
+    solveSudoku(board);
     for(int i= 0; i< 9; i++){
         for(int j= 0; j< 9; j++)
             cout<<board[i][j]<<" ";
