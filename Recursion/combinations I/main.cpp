@@ -7,8 +7,8 @@ vector<vector<int>> combinationSum(vector<int>& candidates, int target);
 
 int main()
 {
-    vector<int> arr = {12,2,4,3,4,5};
-    vector<vector<int>> out = combinationSum(arr, 3);
+    vector<int> arr = {2,3,6,7};
+    vector<vector<int>> out = combinationSum(arr, 8);
     for(auto i: out)
     {
         for(auto j: i)
@@ -21,7 +21,7 @@ int main()
 
 void findSub(vector<vector<int>> &v, vector<int> &nums, vector<int> candidates, int ind, int target)
 {
-    if(ind == candidates.size())
+    if(ind == candidates.size() || target == 0)
     {
         if(target == 0)
         {
