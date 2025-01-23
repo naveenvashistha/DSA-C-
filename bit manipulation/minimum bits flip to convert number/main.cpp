@@ -2,28 +2,22 @@
 
 using namespace std;
 
-int minBitFlips(int start, int goal);
-
+int singleNumber(vector<int>& nums);
 
 int main()
 {
-    cout << minBitFlips(7, 10) << endl;
+    vector<int> nums = {1,2,3,3,2};
+    cout << singleNumber(nums) << endl;
 }
 
 //orgasmic
-//time: O(log(max(start, goal)))
+//time: O(n)
 //space: O(1)
-int minBitFlips(int start, int goal) {
-    int i = 0;
-    int cnt = 0;
-    while(start != goal)
+int singleNumber(vector<int>& nums) {
+    int count = 0;
+    for(auto i: nums)
     {
-        if((start & (1 << i)) != (goal & (1 << i)))
-        {
-            start = start ^ (1 << i);
-            cnt++;
-        }
-        i++;
+        count = count ^ i;
     }
-    return cnt;
+    return count;
 }
