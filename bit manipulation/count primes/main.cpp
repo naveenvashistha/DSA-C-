@@ -10,10 +10,12 @@ int main()
 }
 
 //orgasmic
+//space: O(nloglogn)
+//space: O(n)
 int countPrimes(int n) {
     vector<int> v(n, 1);
     int count = 0;
-    for(long i = 2; i < n; i++)
+    for(long i = 2; i * i <= n; i++)
     {
         if(v[i] == 1)
         {
@@ -23,8 +25,11 @@ int countPrimes(int n) {
                 v[i * j] = 0;
                 j++;
             }
-            count++;
         }
+    }
+    for(int i = 2; i < n; i++)
+    {
+        if(v[i] == 1) count++;
     }
     return count;
 }
