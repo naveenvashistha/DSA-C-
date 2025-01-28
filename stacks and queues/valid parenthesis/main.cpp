@@ -2,6 +2,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//orgasmic
+//time: O(n)
+//space: O(n)
 bool isValid(string s) {
     stack<int> st;
     int i = 0;
