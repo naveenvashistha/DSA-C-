@@ -51,6 +51,6 @@ int maximalRectangle(vector<vector<char>>& matrix) {
 
 int main()
 {
-    vector<int> heights = {2,1,4,6,5};
-	cout << largestRectangleArea(heights) << endl;
+    vector<vector<char>> heights = {{'1', '0', '1', '1'}, {'1', '0', '1', '1'}};
+	cout << maximalRectangle(heights) << endl;
 }
