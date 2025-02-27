@@ -97,14 +97,8 @@ class minHeap{
     //time: O(logn)
     void deleteKey(int i)
     {
-        if(count == 0)
-        {
-            cout << "Heap is empty" << endl;
-            return;
-        }
-        arr[i] = arr[count - 1];
-        count--;
-        minHeapifyDown(i);
+        decreaseKey(i, INT_MIN);
+        extractMin();
     }
 };
 
