@@ -149,23 +149,24 @@ void quick(int arr[], int low, int high)
 {
 	int pivot = low;
 	int length = high;
-	while(true)
+	while(low <= high)
 	{
-		while(low <= high && arr[low] <= arr[pivot])
+		if(arr[pivot] < arr[low] && arr[pivot] > arr[high])
+		{
+			swap(arr, low, high);
+			low++;
+			high--;
+		}
+		if(arr[low] <= arr[pivot])
 		{
 			low++;
 		}
-		while(low <= high && arr[high] >= arr[pivot])
+		if(arr[high] >= arr[pivot])
 		{
 			high--;
 		}
-		if (low > high)
-		{
-			swap(arr, high, pivot);
-			break;
-		}
-		swap(arr, low, high);
 	}
+	swap(arr, high, pivot);
 	if (pivot < high - 1)
 		quick(arr, pivot, high - 1);
 	if (high + 1 < length)

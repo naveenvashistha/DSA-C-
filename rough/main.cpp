@@ -1,20 +1,21 @@
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
-struct salary
-{
-char name[20];
-char department[10];
-struct navi
-{
-int basic_pay;
-int da;
-int hra;
-int city_allowance;
-} allowance;
-};
+int globalVar = 100;  // ✅ Global variable
 
-int main()
-{
-	int i=  5;
-    printf("%d %d %d %d", ++i, i, i++, ++i);
+void myFunction() {
+    class LocalClass {  // Local class inside function
+    public:
+        void show() {
+            cout << "Global Variable: " << globalVar << endl;  // ✅ Allowed
+        }
+    };
+
+    LocalClass obj;
+    obj.show();
+}
+
+int main() {
+    myFunction();
+    return 0;
 }

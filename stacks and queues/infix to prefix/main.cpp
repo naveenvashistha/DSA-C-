@@ -9,7 +9,7 @@ using namespace std;
 class Solution {
   public:
     // Function to convert an infix expression to a postfix expression.
-    string infixToPostfix(string& s) {
+    string infixToPrefix(string& s) {
         // Your code here
         string ans = "";
         unordered_map<char, int> op = {
@@ -20,35 +20,32 @@ class Solution {
           {'-', 3}
         };
         stack<char> st;
-        for(auto i: s)
+        for(int i = s.length(); i >= 0; i--)
         {
-            if(isalpha(i) || isdigit(i)) ans.push_back(i);
-            else if(i == '(') st.push(i);
-            else if(i == ')')
+            if(isalpha(s[i]) || isdigit(s[i])) ans = s[i] + ans;
+            else if(s[i] == ')') st.push(s[i]);
+            else if(s[i] == '(')
             {
-                while(st.top() != '(')
+                while(st.top() != ')')
                 {
-                    char c = st.top();
-                    ans.push_back(c);
+                    ans = st.top() + ans;
                     st.pop();
                 }
                 st.pop();
             }
             else
             {
-                while(!st.empty() && op[i] <= op[st.top()])
+                while(!st.empty() && op[s[i]] < op[st.top()])
                 {
-                    char c = st.top();
-                    ans.push_back(c);
+                    ans = st.top() + ans;
                     st.pop();
                 }
-                st.push(i);
+                st.push(s[i]);
             }
         }
         while(!st.empty())
         {
-            char c = st.top();
-            ans.push_back(c);
+            ans = st.top() + ans;
             st.pop();
         }
         return ans;
@@ -61,5 +58,5 @@ int main()
 {
 	Solution s;
     string ss = "a+b";
-    cout << s.infixToPostfix(ss) << endl;
+    cout << s.infixToPrefix(ss) << endl;
 }
