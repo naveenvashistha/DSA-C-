@@ -9,7 +9,7 @@ bool canJump(vector<int>& nums) {
     for(int i = 0; i < nums.size(); i++)
     {
         furthest = max(furthest, i + nums[i]);
-        if(furthest == nums.size() - 1) return true;
+        if(furthest >= nums.size() - 1) return true;
         if(furthest == i) return false;
     }
     return true;
