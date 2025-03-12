@@ -2,54 +2,30 @@
 
 using namespace std;
 
-//my solution
-//time: O(n)
-//space: O(1)
-int jump(vector<int>& nums) {
-    if(nums.size() == 1) return 0;
-    int f_ind = 0;
-    int jump = 0;
-    int furthest_index = nums[0];
-    int furthest =  nums[0];
-    int i = 1;
-    while(i < nums.size())
+//time: O(nlogn)
+//space: O(n)
+vector<int> JobSequencing(vector<int> &id, vector<int> &deadline, vector<int> &profit) {
+    // code here
+    vector<pair<int, int>> dp;
+    int max_profit = 0;
+    int jobs = 0;
+    for(int i = 0; i < deadline.size(); i++)
+    dp.push_back({profit[i], deadline[i]});
+    sort(dp.begin(), dp.end());
+    int maxx = INT_MIN;
+    for(int i: deadline) maxx = max(maxx, i);
+    vector<int> day(maxx, -1);
+    for(int i = dp.size() - 1; i >= 0; i--)
     {
-        if(furthest >= nums.size() - 1) return jump + 1;
-        while(i <= furthest_index && i < nums.size())
-        {
-            if(furthest < i + nums[i])
-            {
-                furthest = i + nums[i];
-                f_ind = i;
-            }
-            i++;
-        }
-        i = f_ind + 1;
-        furthest_index = furthest;
-        jump++;
+    int j = dp[i].second - 1;
+    while(j >= 0 && day[j] != -1) j--;
+    if(j >= 0){
+    day[j] = 0;
+    max_profit += dp[i].first;
+    jobs++;
     }
-    return jump;
-}
-
-
-//orgasmic
-//time: O(n)
-//space: O(1)
-int jump(vector<int>& nums) {
-    int jumps = 0;
-    int l = 0, r = 0;
-    while(r < nums.size() - 1)
-    {
-        int furthest = 0;
-        for(int i = l; i <= r; i++)
-        {
-            furthest = max(furthest, nums[i] + i);
-        }
-        l = r + 1;
-        r = furthest;
-        jumps++;
     }
-    return jumps;
+    return {jobs, max_profit};
 }
 
 int main()
