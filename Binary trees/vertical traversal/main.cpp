@@ -10,6 +10,9 @@ void traversal(TreeNode* node, map<int, vector<pair<int, int>>>& mp, int row, in
     traversal(node->left, mp, row + 1, col - 1);
     traversal(node->right, mp, row + 1, col + 1);
 }
+
+//time: O(nlogn)
+//space: O(n)
 vector<vector<int>> verticalTraversal(TreeNode* root) {
     map<int, vector<pair<int, int>>> mp;
     traversal(root, mp, 0, 0);
