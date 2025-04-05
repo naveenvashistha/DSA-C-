@@ -2,6 +2,7 @@
 
 using namespace std;
 
+//if adj list is given
 //time: O(n + 2e)
 //space: O(n)
 void dfs(vector<vector<int>>& adj, int visited[], int i)
@@ -26,6 +27,34 @@ int countComponents(int n, vector<vector<int>>& edges) {
         if(!visited[i]){
             count++;
             dfs(adj, visited, i);
+        }
+    }
+    return count;
+}
+
+//if adj matrix is given
+//time: O(v^2)
+//space: O(v)
+void dfs(vector<vector<int>>& isConnected, vector<int>& visited, int node)
+{
+    visited[node] = 1;
+    
+    for(int i = 0; i < isConnected.size(); i++)
+    {
+        if(i != node && isConnected[node][i] == 1 && visited[i] == 0){
+            dfs(isConnected, visited, i);
+        }
+    }
+}
+int findCircleNum(vector<vector<int>>& isConnected) {
+    vector<int> visited(isConnected.size(), 0);
+    int count = 0;
+    for(int i = 0; i < isConnected.size(); i++)
+    {
+        cout << visited[i] << endl;
+        if(!visited[i]){
+            count++;
+            dfs(isConnected, visited, i);
         }
     }
     return count;
