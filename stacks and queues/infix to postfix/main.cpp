@@ -60,6 +60,6 @@ class Solution {
 int main()
 {
 	Solution s;
-    string ss = "a+b";
+    string ss = "a+b*(c^d-e)^(f+g*h)-i";
     cout << s.infixToPostfix(ss) << endl;
 }

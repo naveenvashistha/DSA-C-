@@ -7,7 +7,7 @@ using namespace std;
 //space: O(V)
 vector<int> dijkstra(int V, vector<vector<int>> &edges, int src) {
     // Code here
-    priority_queue<pair<int, int>> q;
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> q;
     vector<int> dist(V, -1);
     vector<vector<pair<int, int>>> adj(V);
     q.push({0, src});
