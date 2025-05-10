@@ -3,25 +3,20 @@
 using namespace std;
 
 //orgasmic
-//time: O(vxe)
-//space: O(v)
-vector<int> bellmanFord(int V, vector<vector<int>>& edges, int src) {
+//time: O(n^3)
+//space: O(1)
+void floydWarshall(vector<vector<int>> &dist) {
     // Code here
-    vector<int> dist(V, 1e8);
-    dist[src] = 0;
-    for(int i = 0; i < V - 1; i++)
+    int v = dist.size();
+    for(int i = 0; i < v; i++)
     {
-        for(auto j: edges)
+        for(int j = 0; j < v; j++)
         {
-            if(dist[j[0]] != 1e8 && dist[j[0]] + j[2] < dist[j[1]]){
-                dist[j[1]] = dist[j[0]] + j[2];
+            for(int k = 0; k < v; k++)
+            {
+                if(dist[j][i] != 1e8 && dist[i][k] != 1e8)
+                    dist[j][k] = min(dist[j][k], dist[j][i] + dist[i][k]);
             }
         }
     }
-    for(auto j: edges){
-        if(dist[j[0]] != 1e8 && dist[j[0]] + j[2] < dist[j[1]]){
-            return {-1};
-        }
-    }
-    return dist;
 }
