@@ -1,91 +1,97 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-class MyQueue {
-private:
-    int *arr;
-    int front;
-    int rear;
-
-public :
-    MyQueue(){
-        arr = new int[16];
-        front=-1;
-        rear=-1;
+//push is O(n) here but pop is O(1)
+class MyQueue1 {
+public:
+    stack<int> s1;
+    stack<int> s2;
+    MyQueue1() {
+        
     }
-    MyQueue(int s)
-    {
-        arr = new int[s];
-        front=-1;
-        rear=-1;
+    
+    void push(int x) {
+        while(!s1.empty())
+        {
+            int y = s1.top();
+            s1.pop();
+            s2.push(y);
+        }
+        s2.push(x);
+        while(!s2.empty())
+        {
+            int y = s2.top();
+            s2.pop();
+            s1.push(y);
+        }
     }
-    void push(int);
-    int pop();
-    int getFront();
-    int size();
+    
+    int pop() {
+        int x = s1.top();
+        s1.pop();
+        return x;
+    }
+    
+    int peek() {
+        return s1.top();
+    }
+    
+    bool empty() {
+        if(s1.empty()) return true;
+        return false;
+    }
 };
 
-// Function to push an element x in a queue.
-void MyQueue ::push(int x) {
-    // Your Code
-    int size = sizeof(arr) / sizeof(int);
-    if(front == -1)
-    {
-        front++;
-        rear++;
-        arr[rear] = x;
+//push is O(1) but pop is O(n)
+class MyQueue2 {
+public:
+    stack<int> s1;
+    stack<int> s2;
+    int front;
+    MyQueue2() {
     }
-    else if(front == (rear + 1) % size)
-    {
-        cout << "overflow" << endl;
+    
+    void push(int x) {
+        if(s1.empty())
+        {
+            front = x;
+        }
+        s1.push(x);
     }
-    else
-    {
-        rear = (rear + 1) % size;
-        arr[rear] = x;
+    
+    int pop() {
+        while(!s1.empty())
+        {
+            int x = s1.top();
+            s1.pop();
+            s2.push(x);
+        }
+        int p = s2.top();
+        s2.pop();
+        if(!s2.empty()) front = s2.top();
+        while(!s2.empty())
+        {
+            int x = s2.top();
+            s2.pop();
+            s1.push(x);
+        }
+        return p;
     }
-}
+    
+    int peek() {
+        return front;
+    }
+    
+    bool empty() {
+        if(s1.empty()) return true;
+        return false;
+    }
+};
 
-// Function to pop an element from queue and return that element.
-int MyQueue ::pop() {
-    // Your Code
-    int size = sizeof(arr) / sizeof(int);
-    if(front == -1)
-        cout << "underflow" << endl;
-    else if(front == rear)
-    {
-        int x = arr[front];
-        front = -1;
-        rear = -1;
-        return x;
-    }
-    else{
-        int x = arr[front];
-        front = (front + 1) % size;
-        return x;
-    } 
-}
-
-int MyQueue :: getFront()
-{
-    if(front == -1)
-    {
-        cout << "underflow";
-        return -1;
-    }
-    return arr[front];
-}
-
-int MyQueue :: size()
-{
-    int size = sizeof(arr) / sizeof(int);
-    if(front == -1) return 0;   
-    return ((size - front + rear) % size) + 1;
-}
 
 int main()
 {
-	MyQueue q;
+	MyQueue1 q;
     q.push(1);
     q.push(2);
     q.push(3);
