@@ -41,11 +41,11 @@ class disjoint{
         int p_u = findUParent(u);
         int p_v = findUParent(v);
         if(p_u == p_v) return;
-        if(size[p_u] <= rank[p_v]){
+        if(size[p_u] <= size[p_v]){
             parent[p_u] = p_v;
             size[p_v] += size[p_u]; 
         }
-        else if(rank[p_v] < rank[p_u]){
+        else if(size[p_v] < size[p_u]){
             parent[p_v] = p_u;
             size[p_u] += size[p_v];
         }
