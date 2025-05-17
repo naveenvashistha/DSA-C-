@@ -2,49 +2,41 @@
 
 using namespace std;
 
-vector<vector<string>> findLadders(string beginWord, string endWord, vector<string> &wordList) {
-    // Do not write main() function.
-    // Do not read input, instead use the arguments to the function.
-    // Do not print the output, instead return values as specified
-    // Still have a doubt. Checkout www.interviewbit.com/pages/sample_codes/ for more details
-    unordered_set<string> st(wordList.begin(), wordList.end());
-        queue<vector<string>> q;
-        vector<vector<string>> ans;
-        int minn = INT_MAX;
-        q.push({beginWord});
-        st.erase(beginWord);
-        while(!q.empty())
+vector<vector<string>> findSequences(string beginWord, string endWord, vector<string>& wordList) {
+    // code here
+    unordered_set<string> s(wordList.begin(), wordList.end());
+    queue<vector<string>> q;
+    q.push({beginWord});
+    s.erase(beginWord);
+    vector<vector<string>> ans;
+    while(!q.empty())
+    {
+        int size = q.size();
+        vector<string> w;
+        for(int i = 0; i < size; i++)
         {
-            int size = q.size();
-            unordered_set<string> temp;
-            for(int i = 0; i < size; i++)
-            {
-                if(q.front().back() == endWord){
-                    if(minn >= q.front().size()){
-                        ans.push_back(q.front());
-                        minn = q.front().size();
-                        q.pop();
-                        continue;
-                    }
-                    return ans;
-                }
-                for(int j = 0; j < q.front().back().size(); j++)
-                {
-                    for(char c = 'a'; c <= 'z'; c++)
-                    {
-                        vector<string> v = q.front();
-                        string word = v.back();
-                        word[j] = c;
-                        if(st.find(word) != st.end()){
-                            v.push_back(word);
-                            temp.insert(word);
-                            q.push(v);
-                        }
-                    }
-                }
+            if(q.front().back() == endWord){
+                ans.push_back(q.front());
                 q.pop();
-            } 
-            for(auto i: temp) st.erase(i);
+                continue;
+            }
+            for(int j = 0; j < beginWord.length(); j++)
+            {
+                for(char ch = 'a'; ch <= 'z'; ch++)
+                {
+                    vector<string> wordVec = q.front();
+                    string word = wordVec.back();
+                    word[j] = ch;
+                    if(s.find(word) != s.end()){
+                        wordVec.push_back(word);
+                        q.push(wordVec);
+                        w.push_back(word);
+                    }
+                }
+            }
+            q.pop();
         }
-        return ans;
+        for(auto e: w) s.erase(e);
+    }
+    return ans;
 }
