@@ -121,10 +121,16 @@ vector<int> getInOrderTraversal(TreeNode *root)
         }
         else
         {
+            if(st.empty()){
+                break;
+            }
             node = st.top();
+            st.pop();
+            ans.push_back(node->data);
             node = node->right;
         }
     }
+    
     return ans;
 }
 

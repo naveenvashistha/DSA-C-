@@ -92,7 +92,7 @@ class minHeap{
         }
         arr[count] = k;
         count++;
-        minHeapifyUp(count);
+        minHeapifyUp(count - 1);
     }
     //time: O(logn)
     void deleteKey(int i)
